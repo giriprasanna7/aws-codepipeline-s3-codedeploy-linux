@@ -1,7 +1,7 @@
-FROM node:18
+FROM nginx:latest
 WORKDIR /app
-COPY package*.json ./
+COPY . /usr/share/nginx/html
 RUN npm install
 COPY . .
-EXPOSE 3000
+EXPOSE 80
 CMD ["node", "app.js"]
