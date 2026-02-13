@@ -1,0 +1,19 @@
+version: 0.2
+
+env:
+  variables:
+    ImageName: simple-docker-service
+
+phases:
+  pre_build:
+    commands:
+      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 134442915760.dkr.ecr.ap-south-1.amazonaws.com
+
+  build:
+    commands:
+      - docker build -t $ImageName .
+      - docker tag $ImageName:latest 134442915760.dkr.ecr.ap-south-1.amazonaws.com/$ImageName:latest
+
+  post_build:
+    commands:
+      - docker push 134442915760.dkr.ecr.ap-south-1.amazonaws.com/$ImageName:latest
