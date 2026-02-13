@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    ImageName: simple-docker-service
+    ImageName: simple-docker-service-027fb42d2ab3
 
 phases:
   pre_build:
