@@ -1,3 +1,2 @@
-FROM nginx:latest
-COPY . /usr/share/nginx/html
-EXPOSE 80
+index.html
+<h1>Pipeline Working Successfully</h1>
